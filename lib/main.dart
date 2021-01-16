@@ -12,7 +12,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('in MyApp');
+    
     return MaterialApp(
         initialRoute: '/',
         routes: {
