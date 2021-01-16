@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 // Dropdown menu - GENDER
 /// This is the stateful widget that the main application instantiates.
 class Dropdown extends StatefulWidget {
-  Dropdown({Key key}) : super(key: key);
-
+  Dropdown({Key key, gender}) : super(key: key);
+  var gender = "Male";
   @override
   _DropdownState createState() => _DropdownState();
 }
@@ -14,7 +14,7 @@ class Dropdown extends StatefulWidget {
 /// This is the private State class that goes with Dropdown.
 class _DropdownState extends State<Dropdown> {
   String dropdownValue = 'Unisex';
-
+  var gender = "Male";
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
@@ -33,6 +33,7 @@ class _DropdownState extends State<Dropdown> {
       ),
       onChanged: (String newValue) {
         setState(() {
+          gender = newValue;
           dropdownValue = newValue;
         });
       },
@@ -61,7 +62,9 @@ class _DropdownState extends State<Dropdown> {
 // Dropdown menu - SIZE
 /// This is the stateful widget that the main application instantiates.
 class DropdownSize extends StatefulWidget {
-  DropdownSize({Key key}) : super(key: key);
+  DropdownSize({Key key, size}) : super(key: key);
+
+  var size = "Medium";
 
   @override
   _DropdownSizeState createState() => _DropdownSizeState();
@@ -70,6 +73,7 @@ class DropdownSize extends StatefulWidget {
 /// This is the private State class that goes with Dropdown.
 class _DropdownSizeState extends State<DropdownSize> {
   String dropdownValue = 'Medium';
+  var size = "Medium";
 
   @override
   Widget build(BuildContext context) {

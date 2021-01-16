@@ -1,14 +1,21 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'InfoPageWidgets/dropdownmenu.dart';
 import 'InfoPageWidgets/button.dart';
+import 'GarmentList.dart';
 
 void main() {
   runApp(AddItem());
 }
 
 class AddItem extends StatelessWidget {
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  var size = "Medium";
+  var gender = "Female";
+
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
@@ -21,8 +28,8 @@ class AddItem extends StatelessWidget {
               height: 50.0,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                right: 59.0,
+              padding: EdgeInsets.symmetric(
+                horizontal: 20.0,
               ),
               child: Text(
                 'Add Item',
@@ -34,7 +41,7 @@ class AddItem extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(20),
               child: Text(
                 'Please enter some information:',
                 textAlign: TextAlign.left,
@@ -59,21 +66,15 @@ class AddItem extends StatelessWidget {
                   textAlign: TextAlign.left,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                 ),
-                Spacer(),
+                // Spacer(),
               ],
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 20,
-                ),
-                // TextField(
-                //   decoration: InputDecoration(
-                //       border: InputBorder.none,
-                //       hintText: 'Enter a search term'),
-                // ),
-                Spacer(),
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+              child: TextField(
+                controller: titleController,
+                decoration: InputDecoration(hintText: ''),
+              ),
             ),
             SizedBox(
               height: 10.0,
@@ -88,16 +89,15 @@ class AddItem extends StatelessWidget {
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                   ),
                 ),
-                Spacer(),
+                // Spacer(),
               ],
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 20,
-                ),
-                DropdownSize(),
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+              child: TextField(
+                controller: descriptionController,
+                decoration: InputDecoration(hintText: ''),
+              ),
             ),
             SizedBox(
               height: 10.0,
@@ -120,7 +120,7 @@ class AddItem extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Dropdown(),
+                Dropdown(gender: gender),
               ],
             ),
             SizedBox(
@@ -144,19 +144,31 @@ class AddItem extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                DropdownSize(),
+                DropdownSize(size: size),
               ],
             ),
 
             // SizedBox(
             //   height: 70.0,
             // ),
-            RaisedButton(
-              child: new Text("Next"),
-              color: Colors.blueAccent[600],
-              onPressed: () {
-                Navigator.pushNamed(context, '/GarmentList');
-              },
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: RaisedButton(
+                child: new Text("Next"),
+                color: Colors.blueAccent[600],
+                onPressed: () {
+                  garmentList.add(
+                    new Garment(
+                        title: titleController.text,
+                        description: descriptionController.text,
+                        size: size,
+                        gender: gender,
+                        location: "Dro",
+                        assetName: "items/jacket.jpg"),
+                  );
+                  Navigator.pushNamed(context, '/GarmentList');
+                },
+              ),
             ),
           ],
         ),

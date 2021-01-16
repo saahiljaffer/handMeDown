@@ -20,15 +20,10 @@ class GarmentList extends StatelessWidget {
                 Navigator.pushNamed(context, '/AddItem');
               },
             ),
-            GarmentCard(
-              garment: garmentList[0],
-            ),
-            GarmentCard(
-              garment: garmentList[1],
-            ),
-            GarmentCard(
-              garment: garmentList[2],
-            ),
+            for (int index = 0; index < garmentList.length; index++)
+              GarmentCard(
+                garment: garmentList[index],
+              )
           ],
         )));
   }
@@ -40,11 +35,17 @@ class Garment {
     @required this.title,
     @required this.description,
     @required this.location,
-  })  : assert(assetName != null),
+    @required this.gender,
+    @required this.size,
+  })  : assert(gender != null),
+        assert(size != null),
+        assert(assetName != null),
         assert(title != null),
         assert(description != null),
         assert(location != null);
 
+  final String size;
+  final String gender;
   final String assetName;
   final String title;
   final String description;
@@ -55,16 +56,22 @@ var garmentList = [
   new Garment(
       assetName: 'items/jacket.jpg',
       title: "Shirt",
+      size: "Medium",
+      gender: "Male",
       description: "Button-up flannel",
       location: "Toronto"),
   new Garment(
       assetName: 'items/jacket.jpg',
       title: "Jacket",
+      size: "Large",
+      gender: "Female",
       description: "Vintage Nike Jacket",
       location: "Waterloo"),
   new Garment(
       assetName: 'items/jacket.jpg',
       title: "Pants",
+      size: "Large",
+      gender: "Female",
       description: "Blue jeans",
       location: "Kitchener"),
 ];
@@ -100,6 +107,8 @@ class GarmentCard extends StatelessWidget {
               ),
               Text(garment.title, style: TextStyle(fontSize: 24.0)),
               Text(garment.description, style: TextStyle(fontSize: 16.0)),
+              Text(garment.size, style: TextStyle(fontSize: 16.0)),
+              Text(garment.gender, style: TextStyle(fontSize: 16.0)),
               ButtonBar(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
