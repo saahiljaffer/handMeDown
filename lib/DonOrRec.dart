@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 class DonOrRec extends StatelessWidget {
   @override
@@ -18,13 +19,17 @@ class DonOrRec extends StatelessWidget {
               new RaisedButton(
                 child: new Text("Donator"),
                 color:  Colors.blueAccent[600],
-                onPressed: null,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/InfoPage');
+                },
               ),
 
               new RaisedButton(
                 child: new Text("Reciever"),
                 color:  Colors.blueAccent[600],
-                onPressed: null,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/GarmentList');
+                },
               ),
             ],
           ),

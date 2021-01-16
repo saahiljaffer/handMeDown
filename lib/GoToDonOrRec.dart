@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './DonOrRec.dart';
+import 'FirstScreenWidgets/signinbutton.dart';
+//import 'buttonSignIn';
 
 class GoToDonOrRec extends StatelessWidget {
   @override
@@ -7,16 +9,7 @@ class GoToDonOrRec extends StatelessWidget {
     print('building GoToDonOrRec');
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          child: Text('Google sign in button'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => DonOrRec()),
-            );
-            // Navigate to second route when tapped.
-          },
-        ),
+        child: SignInButton(),
       ),
     );
   }
