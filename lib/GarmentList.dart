@@ -13,15 +13,17 @@ class GarmentList extends StatelessWidget {
             right: 15,
           ),
           children: [
-            GarmentCard(
-              garment: shirt,
+            RaisedButton(
+              child: new Text("Add New Item"),
+              color: Colors.blueAccent[600],
+              onPressed: () {
+                Navigator.pushNamed(context, '/AddItem');
+              },
             ),
-            GarmentCard(
-              garment: jacket,
-            ),
-            GarmentCard(
-              garment: pants,
-            ),
+            for (int index = 0; index < garmentList.length; index++)
+              GarmentCard(
+                garment: garmentList[index],
+              )
           ],
         )));
   }
@@ -33,34 +35,46 @@ class Garment {
     @required this.title,
     @required this.description,
     @required this.location,
-  })  : assert(assetName != null),
+    @required this.gender,
+    @required this.size,
+  })  : assert(gender != null),
+        assert(size != null),
+        assert(assetName != null),
         assert(title != null),
         assert(description != null),
         assert(location != null);
 
+  final String size;
+  final String gender;
   final String assetName;
   final String title;
   final String description;
   final String location;
 }
 
-Garment shirt = new Garment(
-    assetName: 'items/jacket.jpg',
-    title: "Shirt",
-    description: "Button-up flannel",
-    location: "Toronto");
-
-Garment jacket = new Garment(
-    assetName: 'items/jacket.jpg',
-    title: "Jacket",
-    description: "Vintage Nike Jacket",
-    location: "Waterloo");
-
-Garment pants = new Garment(
-    assetName: 'items/jacket.jpg',
-    title: "Pants",
-    description: "Blue jeans",
-    location: "Kitchener");
+var garmentList = [
+  new Garment(
+      assetName: 'items/jacket.jpg',
+      title: "Shirt",
+      size: "Medium",
+      gender: "Male",
+      description: "Button-up flannel",
+      location: "Toronto"),
+  new Garment(
+      assetName: 'items/jacket.jpg',
+      title: "Jacket",
+      size: "Large",
+      gender: "Female",
+      description: "Vintage Nike Jacket",
+      location: "Waterloo"),
+  new Garment(
+      assetName: 'items/jacket.jpg',
+      title: "Pants",
+      size: "Large",
+      gender: "Female",
+      description: "Blue jeans",
+      location: "Kitchener"),
+];
 
 class GarmentCard extends StatelessWidget {
   GarmentCard({Key key, @required this.garment})
@@ -93,6 +107,8 @@ class GarmentCard extends StatelessWidget {
               ),
               Text(garment.title, style: TextStyle(fontSize: 24.0)),
               Text(garment.description, style: TextStyle(fontSize: 16.0)),
+              Text(garment.size, style: TextStyle(fontSize: 16.0)),
+              Text(garment.gender, style: TextStyle(fontSize: 16.0)),
               ButtonBar(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[

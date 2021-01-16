@@ -25,7 +25,7 @@ class InfoPage extends StatelessWidget {
                 right: 59.0,
               ),
               child: Text(
-                'Hand Me Down',
+                'Profile',
                 style: GoogleFonts.quicksand(
                   fontSize: 40.0,
                   fontWeight: FontWeight.w700,
@@ -38,16 +38,11 @@ class InfoPage extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding: EdgeInsets.only(
-                    left: 20.0, right: 10.0, top: 10.0, bottom: 10.0),
-                child: Text(
-                  'We just need a little bit more information to get started:',
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.quicksand(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20.0,
-                    color: Color(0xFF555555),
-                  ),
+                padding: EdgeInsets.all(0),
+                child: ListTile(
+                  leading: const Icon(Icons.account_circle),
+                  title: const Text("Saahil Jaffer"),
+                  subtitle: const Text("Toronto, Ontario"),
                 ),
               ),
             ),
@@ -59,10 +54,10 @@ class InfoPage extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Text(
-                  'Gender',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                ListTile(
+                  leading: const Icon(Icons.account_circle),
+                  title: const Text("Saahil"),
+                  subtitle: const Text("Toronto, Ontario"),
                 ),
                 Spacer(),
               ],
@@ -72,7 +67,11 @@ class InfoPage extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Dropdown(),
+                Text(
+                  'Contact Info',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                ),
                 Spacer(),
               ],
             ),
@@ -100,16 +99,10 @@ class InfoPage extends StatelessWidget {
                 DropdownSize(),
               ],
             ),
-            // SizedBox(
-            //   height: 70.0,
-            // ),
-            RaisedButton(
-              child: new Text("Next"),
-              color: Colors.blueAccent[600],
-              onPressed: () {
-                Navigator.pushNamed(context, '/swipeClothes');
-              },
+            SizedBox(
+              height: 70.0,
             ),
+            BottomButton(),
           ],
         ),
       ),
