@@ -45,7 +45,7 @@ class Garment {
 }
 
 Garment shirt = new Garment(
-    assetName: 'items/jacket.png',
+    assetName: 'items/jacket.jpg',
     title: "Shirt",
     description: "Button-up flannel",
     location: "Toronto");
@@ -57,7 +57,7 @@ Garment jacket = new Garment(
     location: "Waterloo");
 
 Garment pants = new Garment(
-    assetName: 'items/jacket.png',
+    assetName: 'items/jacket.jpg',
     title: "Pants",
     description: "Blue jeans",
     location: "Kitchener");
