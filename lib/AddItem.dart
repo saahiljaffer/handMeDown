@@ -5,17 +5,17 @@ import 'InfoPageWidgets/dropdownmenu.dart';
 import 'InfoPageWidgets/button.dart';
 
 void main() {
-  runApp(InfoPage());
+  runApp(AddItem());
 }
 
-class InfoPage extends StatelessWidget {
+class AddItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
       backgroundColor: Color(0xFFE5E5E5),
       body: Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
               height: 50.0,
@@ -25,7 +25,7 @@ class InfoPage extends StatelessWidget {
                 right: 59.0,
               ),
               child: Text(
-                'Hand Me Down',
+                'Add Item',
                 style: GoogleFonts.quicksand(
                   fontSize: 40.0,
                   fontWeight: FontWeight.w700,
@@ -33,26 +33,21 @@ class InfoPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 60.0,
-            ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: 20.0, right: 10.0, top: 10.0, bottom: 10.0),
-                child: Text(
-                  'We just need a little bit more information to get started:',
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.quicksand(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20.0,
-                    color: Color(0xFF555555),
-                  ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Please enter some information:',
+                textAlign: TextAlign.left,
+                style: GoogleFonts.quicksand(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20.0,
+                  color: Color(0xFF555555),
                 ),
               ),
             ),
+
             SizedBox(
-              height: 50.0,
+              height: 10.0,
             ),
             Row(
               children: <Widget>[
@@ -60,7 +55,7 @@ class InfoPage extends StatelessWidget {
                   width: 20,
                 ),
                 Text(
-                  'Gender',
+                  'Title',
                   textAlign: TextAlign.left,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                 ),
@@ -72,12 +67,64 @@ class InfoPage extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Dropdown(),
+                // TextField(
+                //   decoration: InputDecoration(
+                //       border: InputBorder.none,
+                //       hintText: 'Enter a search term'),
+                // ),
                 Spacer(),
               ],
             ),
             SizedBox(
-              height: 50.0,
+              height: 10.0,
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    'Description',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                  ),
+                ),
+                Spacer(),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                DropdownSize(),
+              ],
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    'Gender',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                  ),
+                ),
+                Spacer(),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Dropdown(),
+              ],
+            ),
+            SizedBox(
+              height: 10.0,
             ),
             Row(
               children: <Widget>[
@@ -100,6 +147,7 @@ class InfoPage extends StatelessWidget {
                 DropdownSize(),
               ],
             ),
+
             // SizedBox(
             //   height: 70.0,
             // ),
@@ -107,7 +155,7 @@ class InfoPage extends StatelessWidget {
               child: new Text("Next"),
               color: Colors.blueAccent[600],
               onPressed: () {
-                Navigator.pushNamed(context, '/swipeClothes');
+                Navigator.pushNamed(context, '/GarmentList');
               },
             ),
           ],
