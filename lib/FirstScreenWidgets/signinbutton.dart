@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
-class BottomButton extends StatelessWidget {
-  BottomButton({Key key}) : super(key: key);
+class SignInButton extends StatelessWidget {
+  SignInButton({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,22 +11,22 @@ class BottomButton extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const SizedBox(height: 120),
+          const SizedBox(height: 200),
           RaisedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/MapPage');
+              Navigator.pushNamed(context, '/DonOrRec');
             },
-            color: Color(0xFFEB5729),
+            color: Colors.white54,
             child: const Text(
-              'Next',
+              'Sign in with google',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.w300,
-                color: Colors.white,
+                color: Colors.black,
               ),),
-            padding: EdgeInsets.fromLTRB(145, 17, 145, 17),
+            padding: EdgeInsets.fromLTRB(30, 17, 30, 20),
             shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(50.0),),
+              borderRadius: new BorderRadius.circular(20.0),),
           ),
         ],
       ),

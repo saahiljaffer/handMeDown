@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './GoToDonOrRec.dart';
-import './DonOrRec.dart';
+import 'package:handMeDown/InfoPage.dart';
+import 'InfoPage.dart';
+import 'GoToDonOrRec.dart';
+import 'DonOrRec.dart';
+import 'GarmentList.dart';
+//import 'MapPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,9 +14,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     print('in MyApp');
     return MaterialApp(
+        initialRoute: '/',
+        routes: {
+          // When navigating to the "/" route, build the FirstScreen widget.
+          '/': (context) => GoToDonOrRec(),
+          '/DonOrRec': (context) => DonOrRec(),
+          '/GarmentList': (context) => GarmentList(),
+          '/InfoPage': (context) => InfoPage(),
+        },
         theme: ThemeData(primaryColor: Colors.orange),
-        home: Scaffold(
-          appBar: AppBar(title: Text('Hand Me Down')),
-          body: GoToDonOrRec()));
+//        home: Scaffold(
+//            body: GoToDonOrRec())
+//
+     );
   }
 }
