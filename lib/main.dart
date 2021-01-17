@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/InfoPage': (context) => InfoPage(),
         '/AddItem': (context) => AddItem(),
         '/swipeClothes': (context) => SwipeClothes(),
+        '/InfoPageTwoDonor': (context) => InfoPageTwo(whichPage: false),
         // '/ImagePicker': (context) => ImagePickerCustom(),
       },
       theme: ThemeData(primaryColor: Colors.orange),

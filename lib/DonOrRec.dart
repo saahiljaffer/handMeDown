@@ -84,12 +84,14 @@ class DonOrRec extends StatelessWidget {
                       disabledColor: Color(0xffF9EAE5),
                       color: Color(0xFFEB5729),
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => InfoPageTwo(
-                                      whichPage: true,
-                                    )));
+                        Navigator.pushNamed(context, '/InfoPageTwo');
+
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     CupertinoPageRoute(
+                        //         builder: (context) => InfoPageTwo(
+                        //               whichPage: true,
+                        //             )));
                       },
                       child: Text("Recieve",
                           style: TextStyle(
