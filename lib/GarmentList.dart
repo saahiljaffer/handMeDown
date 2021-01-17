@@ -79,7 +79,7 @@ class Garment {
 
 var garmentList = [
   new Garment(
-      assetName: 'items/jacket.jpg',
+      assetName: 'items/shirt.jpg',
       title: "Shirt",
       size: "Medium",
       gender: "Male",
@@ -93,7 +93,7 @@ var garmentList = [
       description: "Vintage Nike Jacket",
       location: "Waterloo"),
   new Garment(
-      assetName: 'items/jacket.jpg',
+      assetName: 'items/pants.jpg',
       title: "Pants",
       size: "Large",
       gender: "Female",

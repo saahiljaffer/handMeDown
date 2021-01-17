@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'main.dart';
+
+import 'package:handMeDown/swipeClothes.dart';
 
 class DonOrRec extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('We are in done or rec');
+
     return Scaffold(
       body: Center(
         child: new Container(
@@ -64,6 +67,16 @@ class DonOrRec extends StatelessWidget {
                   ),
                 ),
               ),
+              new RaisedButton(
+                child: new Text("Fake go to tinder"),
+                color:  Colors.blueAccent[600],
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SwipeClothes()),
+                  );
+                }
+                ),
             ],
           ),
         ),
