@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => GoToDonOrRec(),
-        '/DonOrRec': (context) => GoToDonOrRec(),
+        '/DonOrRec': (context) => DonOrRec(),
+        '/ConsentPage': (context) => ConsentPage(),
         '/GarmentList': (context) => GarmentList(),
         '/InfoPage': (context) => InfoPage(),
         '/AddItem': (context) => AddItem(),

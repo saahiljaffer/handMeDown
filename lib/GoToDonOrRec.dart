@@ -18,6 +18,10 @@ class _GoToDonOrRec extends State<GoToDonOrRec> {
   final GoogleSignIn googleSignIn = new GoogleSignIn();
 
   Future<FirebaseUser> _signInGoogle() async {
+    // Navigator.pushReplacement(
+    //     context, CupertinoPageRoute(builder: (context) => ConsentPage()));
+    Navigator.pushNamed(context, '/ConsentPage');
+
     GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;
@@ -27,8 +31,8 @@ class _GoToDonOrRec extends State<GoToDonOrRec> {
       idToken: googleSignInAuthentication.idToken,
     );
     FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
-    Navigator.pushReplacement(
-        context, CupertinoPageRoute(builder: (context) => ConsentPage()));
+    // Navigator.pushReplacement(
+    //     context, CupertinoPageRoute(builder: (context) => ConsentPage()));
     return user;
   }
 
