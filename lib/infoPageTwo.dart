@@ -351,7 +351,7 @@ class _InfoPageTwo extends State<InfoPageTwo> {
                       Container(
                           padding: EdgeInsets.fromLTRB(18, 0, 18, 0),
                           child: Text(
-                            "Now w'll need some basic info",
+                            "Now we'll need some basic info",
                             style: TextStyle(
                               color: Color(0xff555555),
                               fontSize: 20,
