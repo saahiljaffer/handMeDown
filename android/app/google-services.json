@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "69227588627",
+    "project_id": "handmedown-2a62c",
+    "storage_bucket": "handmedown-2a62c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69227588627:android:41e3b952bf190c40ef63e6",
+        "android_client_info": {
+          "package_name": "com.example.handMeDown"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69227588627-4s6inlkhoanenj2o71kj1fvlf5gdj6c1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.handMeDown",
+            "certificate_hash": "a33a75db1bd804a7411ff4d6d0bf43aaabf269ef"
+          }
+        },
+        {
+          "client_id": "69227588627-o1f02a2j7ubs71kj33g2fp7aqmukho9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfH6hgcJnG99Ew6gqzFGL-z-ex5ieoC5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69227588627-o1f02a2j7ubs71kj33g2fp7aqmukho9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
