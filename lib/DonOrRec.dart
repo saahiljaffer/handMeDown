@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'main.dart';
+
+import 'package:handMeDown/swipeClothes.dart';
 
 class DonOrRec extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('We are in done or rec');
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Hand Me Down Don or Rec"),
@@ -28,6 +31,16 @@ class DonOrRec extends StatelessWidget {
                   Navigator.pushNamed(context, '/InfoPage');
                 },
               ),
+              new RaisedButton(
+                child: new Text("Fake go to tinder"),
+                color:  Colors.blueAccent[600],
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SwipeClothes()),
+                  );
+                }
+                ),
             ],
           ),
         ),
