@@ -52,12 +52,15 @@ class DonOrRec extends StatelessWidget {
                       disabledColor: Color(0xffF9EAE5),
                       color: Color(0xFFEB5729),
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => InfoPageTwo(
-                                      whichPage: false,
-                                    )));
+                        Navigator.pushNamed(context, '/InfoPageTwoDonor');
+
+                        //   Navigator.pushReplacement(
+                        //       context,
+                        //       CupertinoPageRoute(
+                        //           builder: (context) => InfoPageTwo(
+                        //                 whichPage: false,
+                        //               )));
+                        // },
                       },
                       child: Text("Donate",
                           style: TextStyle(
@@ -84,7 +87,7 @@ class DonOrRec extends StatelessWidget {
                       disabledColor: Color(0xffF9EAE5),
                       color: Color(0xFFEB5729),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/InfoPageTwo');
+                        Navigator.pushNamed(context, '/InfoPage');
 
                         // Navigator.pushReplacement(
                         //     context,

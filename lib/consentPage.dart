@@ -38,8 +38,9 @@ class _CheckBox extends State<ConsentPage> {
     }
     if (_enabled) {
       _onPressed = () {
-        Navigator.pushReplacement(context,
-            CupertinoPageRoute(builder: (context) => NavigationBarRoot()));
+        Navigator.pushNamed(context, '/DonOrRec');
+        // Navigator.pushReplacement(context,
+        //     CupertinoPageRoute(builder: (context) => NavigationBarRoot()));
       };
     }
 
