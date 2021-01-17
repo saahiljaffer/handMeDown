@@ -103,12 +103,27 @@ class InfoPage extends StatelessWidget {
             // SizedBox(
             //   height: 70.0,
             // ),
-            RaisedButton(
-              child: new Text("Next"),
-              color: Colors.blueAccent[600],
-              onPressed: () {
-                Navigator.pushNamed(context, '/swipeClothes');
-              },
+
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: new RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/swipeClothes');
+                },
+                color: Colors.white54,
+                child: const Text(
+                  'Next',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
+                  ),
+                ),
+                padding: EdgeInsets.fromLTRB(30, 17, 30, 20),
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
+              ),
             ),
           ],
         ),

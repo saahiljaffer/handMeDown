@@ -153,9 +153,7 @@ class AddItem extends StatelessWidget {
             // ),
             Padding(
               padding: EdgeInsets.all(20),
-              child: RaisedButton(
-                child: new Text("Next"),
-                color: Colors.blueAccent[600],
+              child: new RaisedButton(
                 onPressed: () {
                   garmentList.add(
                     new Garment(
@@ -163,11 +161,24 @@ class AddItem extends StatelessWidget {
                         description: descriptionController.text,
                         size: size,
                         gender: gender,
-                        location: "Dro",
+                        location: "Toronto",
                         assetName: "items/jacket.jpg"),
                   );
                   Navigator.pushNamed(context, '/GarmentList');
                 },
+                color: Colors.white54,
+                child: const Text(
+                  'Next',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
+                  ),
+                ),
+                padding: EdgeInsets.fromLTRB(30, 17, 30, 20),
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
               ),
             ),
           ],

@@ -1,31 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GarmentList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("AppBar")),
         body: Scrollbar(
             child: ListView(
-          padding: const EdgeInsets.only(
-            top: 15,
-            left: 15,
-            right: 15,
-          ),
-          children: [
-            RaisedButton(
-              child: new Text("Add New Item"),
-              color: Colors.blueAccent[600],
-              onPressed: () {
-                Navigator.pushNamed(context, '/AddItem');
-              },
+      padding: const EdgeInsets.only(
+        top: 15,
+        left: 15,
+        right: 15,
+      ),
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 5, top: 15, bottom: 5),
+          child: Text(
+            'Your Items',
+            style: GoogleFonts.quicksand(
+              fontSize: 40.0,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFEB5729),
             ),
-            for (int index = 0; index < garmentList.length; index++)
-              GarmentCard(
-                garment: garmentList[index],
-              )
-          ],
-        )));
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(bottom: 15),
+          child: new RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/AddItem');
+            },
+            color: Colors.white54,
+            child: const Text(
+              'Add New Item',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: Colors.black,
+              ),
+            ),
+            padding: EdgeInsets.fromLTRB(30, 17, 30, 20),
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(20.0),
+            ),
+          ),
+        ),
+        for (int index = 0; index < garmentList.length; index++)
+          GarmentCard(
+            garment: garmentList[index],
+          )
+      ],
+    )));
   }
 }
 
@@ -109,18 +134,23 @@ class GarmentCard extends StatelessWidget {
               Text(garment.description, style: TextStyle(fontSize: 16.0)),
               Text(garment.size, style: TextStyle(fontSize: 16.0)),
               Text(garment.gender, style: TextStyle(fontSize: 16.0)),
-              ButtonBar(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  RaisedButton(
-                    child: const Text('Edit'),
-                    onPressed: () {/* ... */},
+              new RaisedButton(
+                onPressed: () {
+                  garmentList.remove(garment);
+                },
+                color: Colors.white54,
+                child: const Text(
+                  'Delete',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
                   ),
-                  RaisedButton(
-                    child: const Text('Delete'),
-                    onPressed: () {/* ... */},
-                  ),
-                ],
+                ),
+                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
+                ),
               ),
             ],
           ),
