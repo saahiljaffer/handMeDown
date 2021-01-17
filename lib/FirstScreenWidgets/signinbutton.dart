@@ -11,14 +11,14 @@ class SignInButton extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const SizedBox(height: 200),
+          const SizedBox(height: 150),
           RaisedButton(
             onPressed: () {
               Navigator.pushNamed(context, '/DonOrRec');
             },
             color: Colors.white54,
             child: const Text(
-              'Sign in with google',
+              'Sign in with Google',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
