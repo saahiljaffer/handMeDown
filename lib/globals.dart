@@ -1,15 +1,10 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import './GarmentList.dart';
 
 String currentImage;
 String nextImage;
 
-
-Queue<String> Items = new Queue();
-
-InitializeQueue(){
-  Items.add('hoodie');
-  Items.add('jacket');
-  Items.add('shirt');
-}
+Garment currentGarment;
+Garment nextGarment;

@@ -3,7 +3,10 @@ import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import './GarmentList.dart';
 import 'globals.dart' as globals;
+import './itemSelected.dart';
 
 const double imageWidth = 300;
 const double imageHeight = 300;
@@ -11,13 +14,36 @@ const double imageHeight = 300;
 class SwipeClothes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    globals.InitializeQueue();
-    globals.currentImage = globals.Items.first;
+    globals.currentGarment = garmentList[0];
+    globals.nextGarment = garmentList[1];
     return MaterialApp(
-        theme: ThemeData(primaryColor: Colors.orange),
         home: Scaffold(
-            appBar: AppBar(title: Text('Hand Me Down')),
-          body: Center(
+          backgroundColor: Color(0xFFE5E5E5),
+          body: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+          SizedBox(
+            height: 50.0,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+            right: 59.0,
+          ),
+          child: Text(
+          'Hand Me Down',
+          style: GoogleFonts.quicksand(
+          fontSize: 40.0,
+          fontWeight: FontWeight.w700,
+          color: Color(0xFFEB5729),
+          ),
+          ),
+
+          ),
+          SizedBox(
+          height: 60.0,
+          ),
+          Center(
             child: Row(
             children: <Widget>[
               Container(
@@ -41,8 +67,10 @@ class SwipeClothes extends StatelessWidget {
                   },
                   onAccept: (data){
                     print('swiped left');
-                    globals.currentImage = getNextItem(globals.currentImage);
-                    globals.nextImage = getNextItem(globals.nextImage);
+
+                    globals.currentGarment = getNextGarment(globals.currentGarment.assetName);
+                  globals.nextGarment = getNextGarment(globals.nextGarment.assetName  );
+
                   },
                 ),
               ),
@@ -84,59 +112,36 @@ class SwipeClothes extends StatelessWidget {
                         },
                         onAccept: (data){
                           print('swiped right');
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ItemSelected()));
                         },
                       ),
                     )
                 ),
-              )
+              ),
+
             ]
           ),
         ),
+        Container(
+          child: Text(globals.currentGarment.title, style: GoogleFonts.quicksand(
+            fontSize: 30.0,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFFEB5729),),
         ),
-      );
-  }
-}
-
-class MakeCard extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    return Center(
-      child: Card(
-      color: Colors.white,
-      elevation: 5,
-      child: Padding(
-        padding: new EdgeInsets.all(15),
-        child: Column(
-          // mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: new EdgeInsets.only(bottom: 10),
-              child: Image(
-                image: AssetImage(garment.assetName),
-                width: 300,
-                height: 100,
-              ),
-            ),
-            Text(garment.title, style: TextStyle(fontSize: 24.0)),
-            Text(garment.description, style: TextStyle(fontSize: 16.0)),
-            ButtonBar(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                RaisedButton(
-                  child: const Text('Edit'),
-                  onPressed: () {/* ... */},
-                ),
-                RaisedButton(
-                  child: const Text('Delete'),
-                  onPressed: () {/* ... */},
-                ),
-              ],
-            ),
-          ],
         ),
-      ),
+        Container(
+          child: Text(globals.currentGarment.description, style: GoogleFonts.quicksand(
+          fontSize: 15.0,
+          fontWeight: FontWeight.w700,
+          color: Colors.black,),
+          )
+        )
+        ]
+        ),
+      )
+    )
     );
   }
 }
@@ -160,7 +165,9 @@ class SwipeableImage extends StatelessWidget{
                       width: 4,
                     )
                   ),
-                  child: Image.asset(imageToPath((globals.currentImage))
+                  child: Image.asset((
+                  globals.currentGarment.assetName
+                  )
                       , fit: BoxFit.cover),
 
                 )
@@ -181,7 +188,7 @@ class UnderImage extends StatelessWidget{
             body: Center(
                 child: Column(
                   children: <Widget>[
-                    Image.asset(imageToPath(globals.nextImage)),
+                    Image.asset(globals.nextGarment.assetName),
                   ],
                 )
             )
@@ -191,17 +198,42 @@ class UnderImage extends StatelessWidget{
 }
 
 
-String getNextItem(String currentItem){
-  //temp code, just alternates
-  String temp = globals.Items.first;
-  globals.Items.removeFirst();
-  print(globals.Items);
-  globals.Items.add(temp);
-  globals.currentImage = temp;
-  globals.nextImage = globals.Items.first;
-  return temp;
-}
 
 String imageToPath(String fileName){
   return 'items/' + fileName + '.jpg';
 }
+
+//need to use the garment list
+//returns next garment
+Garment getNextGarment(String currentAssetName){
+  //does not deal with currentAsset is last, and next is first asset
+  bool exitOnNext = false;
+  for (int index = 0; index < garmentList.length; index++) {
+    if (exitOnNext){
+      return garmentList[index];
+    }
+
+    print(garmentList[index].assetName);
+    if (garmentList[index].assetName == currentAssetName)
+      exitOnNext = true;
+  }
+  return garmentList[0];
+}
+/*
+class UpdateText extends StatefulWidget{
+  UpdateTextState createState() => UpdateTextState();
+}
+
+
+class UpdateTextState extends State {
+
+
+}
+
+
+changeText() {
+
+  setState(() {
+    textHolder = 'New Sample Text...';
+});
+*/
